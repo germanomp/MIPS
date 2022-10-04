@@ -1,0 +1,78 @@
+.data
+	Num1: .asciiz "Digite o primeiro lado: "
+	Num2: .asciiz "Digite o segundo lado: "
+	Res1: .asciiz "Resultado da primeira soma: "
+	Num3: .asciiz "\nDigite o terceiro lado: "
+	Num4: .asciiz "Digite o quarto lado: "
+	Res2: .asciiz "Resultado da segunda soma: "
+	Total: .asciiz "\nPerimetro: "
+.text
+	li $v0, 4
+	la $a0, Num1
+	syscall
+	
+	li $v0, 5
+	syscall
+	
+	move $t1, $v0
+	
+	li $v0, 4
+	la $a0, Num2
+	syscall
+	
+	li $v0, 5
+	syscall
+	
+	move $t2, $v0
+	
+	add $t5, $t2, $t1
+	
+	li $v0, 4
+	la $a0, Res1
+	syscall
+	
+	li $v0, 1
+	move $a0, $t5
+	syscall
+	
+	#soma 2
+	
+	li $v0, 4
+	la $a0, Num3
+	syscall
+	
+	li $v0, 5
+	syscall
+	
+	move $t3, $v0
+	
+	li $v0, 4
+	la $a0, Num4
+	syscall
+	
+	li $v0, 5
+	syscall
+	
+	move $t4, $v0
+	
+	add $t6, $t4, $t3
+	
+	li $v0, 4
+	la $a0, Res2
+	syscall
+	
+	li $v0, 1
+	move $a0, $t6
+	syscall
+	
+	#total
+	
+	add $t0, $t6, $t5
+	
+	li $v0, 4
+	la $a0, Total
+	syscall
+	
+	li $v0, 1
+	move $a0, $t0
+	syscall
